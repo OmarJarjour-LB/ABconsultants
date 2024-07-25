@@ -5,7 +5,7 @@
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue: 230;
+--hue: 199;
 --first-color: hsl(var(--hue), 55%, 55%);
 --first-color-light: hsl(var(--hue), 55%, 65%);
 --first-color-alt: hsl(var(--hue), 50%, 50%);
@@ -182,11 +182,11 @@ img{
     .nav__menu{
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         background-color: hsla(var(--hue), 70%, 4%, .2);
-        backdrop-filter: blur(16);
+        backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        width: 80%;
+        width: 30%;
         height: 100%;
         padding: 7rem 3rem;
         transition: right .4s;
@@ -230,5 +230,156 @@ img{
     position: absolute;
     top: 1rem;
     right: 1.5rem;
-    
+}
+
+/* show menu */
+.show-menu{
+    right: 0;
+}
+
+/* add blur header */
+
+.blur-header::after{
+    content: '';
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    background-color: hsla(var(hue), 70%, 4%, .2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+
+}
+
+
+
+
+
+
+/* HOME */
+
+.home__container{
+    row-gap: 2rem ;
+    padding-top: 1rem;
+}
+
+.home__img{
+    width: 220px;
+    justify-self: center;
+    mask-image: linear-gradient(to bottom, hsla(var(--hue), 40%, 16%) 60%, transparent 100%);
+}
+
+.home__name{
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-bold);
+    word-break: break-word;
+    margin-bottom: 1rem;
+}
+
+.home__profession{
+    position: relative;
+    font-size: var(--big-font-size);
+    color: var(--text-color);
+}
+
+.home__profession::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -.5rem;
+    width: 25%;
+    height: 3px;
+    background-color: var(--text-color);
+}
+
+.home__scroll{
+    color: var(--title-color);
+    display: inline-flex;
+    column-gap: .5rem;
+    align-items: center;
+    justify-self: center;
+    margin-top: 3rem;
+}
+
+.home__scroll-box{
+    background-color: var(--first-color);
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    overflow: hidden;
+}
+
+.home__scroll-text{
+    font-weight: var(--font-semi-bold);
+}
+
+.home__scroll-box i{
+    animation: scroll-down 3s infinite;
+}
+
+/* animate scroll icon */
+
+@keyframes scroll-down{
+    0%{
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(.6rem);
+        opacity: 0;
+    }
+}
+
+/* SERVICES */
+
+.services{
+    background-color: var(--container-color);
+}
+
+.service__card{
+    background-color: var(--first-color);
+}
+
+.service__link{
+    display: block;
+    position: relative;
+    background-color: var(--body-color);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    color: var(--text-color);
+    transition: transform .4s;
+}
+
+.service__title{
+    font-size: var(--h3-font-size);
+    margin-bottom: .75rem;
+}
+
+.service__description{
+    margin-bottom: 1.5rem;
+}
+
+.service__link i{
+    position: absolute;
+    top: 1.8rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--first-color-light);
+    transition: transform .4s;
+}
+
+.service__link:hover{
+    transform: translateY(-.35rem);
+}
+
+.service__link:hover i{
+    transform: translateX(.5rem);
 }
