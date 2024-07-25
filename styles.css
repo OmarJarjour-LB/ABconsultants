@@ -4,43 +4,43 @@
 
 /* Variables css */
 :root {
-    --header-height: 3.5rem
---hue: 230
---first-color: hsl(var(--hue), 55%, 55%)
---first-color-light: hsl(var(--hue), 55%, 65%)
---first-color-alt: hsl(var(--hue), 50%, 50%)
---title-color: hsl(var(--hue), 30%, 95%)
---text-color: hsl(var(--hue), 20%, 80%)
---text-color-light: hsl(var(--hue), 20%, 70%)
---body-color: hsl(var(--hue), 40%, 16%)
---container-color: hsl(var(--hue), 40%, 20%)
+    --header-height: 3.5rem;
+--hue: 230;
+--first-color: hsl(var(--hue), 55%, 55%);
+--first-color-light: hsl(var(--hue), 55%, 65%);
+--first-color-alt: hsl(var(--hue), 50%, 50%);
+--title-color: hsl(var(--hue), 30%, 95%);
+--text-color: hsl(var(--hue), 20%, 80%);
+--text-color-light: hsl(var(--hue), 20%, 70%);
+--body-color: hsl(var(--hue), 40%, 16%);
+--container-color: hsl(var(--hue), 40%, 20%);
 
 
 
 
 /* Font and typography */
 
---body-font: "Syne", sans-serif
---biggest-font-size: 3rem
---big-font-size: 1.5rem
---h1-font-size: 1.5rem
---h2-font-size: 1.25rem
---h3-font-size: 1rem
---normal-font-size: .938rem
---font-size: .813rem
+--body-font: "Syne", sans-serif;
+--biggest-font-size: 3rem;
+--big-font-size: 1.5rem;
+--h1-font-size: 1.5rem;
+--h2-font-size: 1.25rem;
+--h3-font-size: 1rem;
+--normal-font-size: .938rem;
+--font-size: .813rem;
 
 
 /* font weight */
 
---font-regular: 400
---font-semi-bold: 600
---font-bold: 700
+--font-regular: 400;
+--font-semi-bold: 600;
+--font-bold: 700;
 
 
 /* z index */
 
---z-tooltip: 10
---z-fixed: 100
+--z-tooltip: 10;
+--z-fixed: 100;
 }
 
 /* RESPONSIVE TYPOGRAPHY */
@@ -48,13 +48,13 @@
 
 @media screen and (min-width: 1150px){
     :root{
-        --biggest-font-size: 5.5rem
-        --big-font-size: 2.75rem
-        --h1-font-size: 2.25rem
-        --h2-font-size: 1.5rem
-        --h3-font-size: 1.25rem
-        --normal-font-size: 1.124rem
-        --font-size: .875rem
+        --biggest-font-size: 5.5rem;
+        --big-font-size: 2.75rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1.124rem;
+        --font-size: .875rem;
     }
 }
 
@@ -145,4 +145,90 @@ img{
 
 /* HEADER AND NAV */
 
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: var(--z-fixed);
+}
 
+.nav{
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo{
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+
+.nav__toggle,
+.nav__close{
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+
+
+/* NAVIGATION FOR MOBILE PHONES */
+
+@media screen and (max-width: 1150px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: hsla(var(--hue), 70%, 4%, .2);
+        backdrop-filter: blur(16);
+        -webkit-backdrop-filter: blur(16px);
+        width: 80%;
+        height: 100%;
+        padding: 7rem 3rem;
+        transition: right .4s;
+    }
+}
+
+
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.nav__link{
+    position: relative;
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    transition: color .4s;
+}
+
+.nav__link::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--first-color-light);
+    position: absolute;
+    left: 0;
+    bottom: -.5rem;
+    transition: width .3s;
+}
+
+.nav__link:hover{
+    color: var(--first-color-light);
+}
+
+.nav__link:hover::after{
+    width: 30%;
+}
+
+.nav__close{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    
+}
