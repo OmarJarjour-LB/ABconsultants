@@ -383,3 +383,35 @@ img{
 .service__link:hover i{
     transform: translateX(.5rem);
 }
+
+
+
+.aboutus__container{
+    row-gap: 3rem;
+}
+
+.aboutus__title{
+    position: relative;
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.aboutus__title::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -.5rem;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.aboutus{
+    row-gap: 3rem;
+}
+
+.aboutus__description{
+    margin-bottom: 2rem;
+}
+
