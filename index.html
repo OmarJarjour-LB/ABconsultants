@@ -59,11 +59,11 @@
 
         <!-- HOME -->
         <section class="home section" id="home">
-            <div class="home--container container grid" id="home">
+            <div class="home__container container grid" id="home">
                 <img src="Media/Profile/Logo Final.jpg" alt="image" class="home__img">
                 <div class="home__data">
-                    <h1 class="home__name">AB<BR>Consultants</h1>
-                    <h3 class="home__profession">Consultency</h3>
+                    <h1 class="home__name">AB Consultants</h1>
+                    <h3 class="home__profession">Short Slogan</h3>
                 </div>
                 <a href="#services" class="home__scroll">
                     <div class="home__scroll-box">
@@ -78,7 +78,7 @@
         <section class="services section" id="services">
             <h2 class="section__title">
                 Services</h2>
-                <div class="service__container container grid">
+                <div class="services__container container grid">
                     <article class="service__card">
                         <a href="#" target="_blank" class="service__link">
                             <h2 class="service__title">Architectural Consultation</h2>
@@ -208,9 +208,52 @@
 
         <!-- CONTACT US -->
         <section class="contact us section" id="contactus">
+            <h2 class="section__title">Send Us Your Queries</h2>
+            <div class="contactus__container container grid">
+                <form action="" class="contactus__form grid" id="contactus-form">
+                    <div class="contactus__group grid">
+                        <input type="text" name="" placeholder="Name" required class="contactus__input">
+                        <input type="email" name="" placeholder="Email" required class="contactus__input">
+                    </div>
+                    <textarea name="" placeholder="Query" required class="contactus__input contactus__area"></textarea>
+                    <button type="submit" class="button contactus__button">Send Message</button>
+                    <p class="contactus__message" id="contactus-message">or Call Us Directly</p>
+                </form>
+                <div class="contactus__social grid">
+                    <a href="tel:+96181080681" class="contactus__social-link">
+                        <i class="ri-smartphone-line"></i>
+                        <span>+961 81 08 06 81</span>
+                    </a>
+                    
+                </div>
+            </div>
 
         </section>
     </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <ul class="footer__links">
+                <li>
+                    <a href="#home" class="footer__links active_link">Home</a>
+                </li>
+                <li>
+                    <a href="#services" class="footer__links">Services</a>
+                </li>
+                <li>
+                    <a href="#projects" class="footer__links">Previous Projects</a>
+                </li>
+            </ul>
+            <span class="footer_copy">
+                &#169; All Right Reserved By AB Consultants
+            </span>
+        </div>
+    </footer>
+
+    <!-- Scroll Up -->
+     <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-s-line"></i>
+     </a>
 
      <script src="main.js"></script>
 </body>

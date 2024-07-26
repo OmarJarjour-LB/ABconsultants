@@ -1,26 +1,25 @@
 /* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Syne:wght@400..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue:1;
---first-color: hsl(var(--hue), 55%, 55%);
---first-color-light: hsl(var(--hue), 55%, 65%);
---first-color-alt: hsl(var(--hue), 50%, 50%);
---title-color: hsl(var(--hue), 30%, 95%);
---text-color: hsl(var(--hue), 20%, 80%);
+--hue:14;
+--first-color: hsl(var(--hue), 100%, 55%); /* e signiture color */
+--first-color-light: hsl(var(--hue), 100%, 55%);
+--first-color-alt: hsl(var(--hue), 100%, 55%);
+--title-color: hsl(var(--hue), 100%, 10%); /* e icons titles */
+--icon-color: hsl(var(--hue), 0%, 100%);
+--text-color: hsl(var(--hue), 100%, 80%); /* e description */
 --text-color-light: hsl(var(--hue), 20%, 70%);
---body-color: hsl(var(--hue), 40%, 16%);
---container-color: hsl(var(--hue), 40%, 20%);
+--body-color: hsl(var(--hue), 0%, 100%);
+--container-color: hsl(var(--hue), 25%, 95%);
 
 
 
 
 /* Font and typography */
 
---body-font: "Syne", sans-serif;
+--body-font: "Lato", sans-serif;
 --biggest-font-size: 3rem;
 --big-font-size: 1.5rem;
 --h1-font-size: 1.5rem;
@@ -282,7 +281,7 @@ img{
 .home__name{
     font-size: var(--biggest-font-size);
     font-weight: var(--font-bold);
-    word-break: break-word;
+/*  word-break: break-word; */
     margin-bottom: 1rem;
 }
 
@@ -319,6 +318,9 @@ img{
     place-items: center;
     font-size: 1.5rem;
     overflow: hidden;
+}
+.home__scroll-box i{
+    color: var(--icon-color);
 }
 
 .home__scroll-text{
@@ -684,7 +686,7 @@ contactus__form{
         grid-template-columns: initial;
     }
 
-    .about{
+    .aboutus{
         grid-template-columns: repeat(2, 350px);
         align-items: center;
     }
@@ -707,7 +709,7 @@ contactus__form{
     }
 
     .nav{
-        height: calc(var(--header-height) + 2rem);
+        height: calc(var(--header-height) + .5rem);
     }
 
     .nav__toggle,
@@ -785,9 +787,65 @@ contactus__form{
 
 
 
+
+
+    .aboutus__container{
+        row-gap: 4rem;
+    }
+
+    .aboutus__title{
+        font-size: var(--normal-font-size);
+        margin-bottom: 3.5rem;
+    }
+
+    .aboutus{
+        grid-template-columns: 320px 420px;
+        column-gap: 11.5rem;
+    }
+
+    .aboutus__img{
+        width: 320px;
+    }
+
+    .aboutus__description{
+        margin-bottom: 3rem;
+    }
+
+    .contactus__container{
+        grid-template-columns: 580px;
+    }
+
+    .contactus__group{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contactus__area{
+        height: 15rem;
+    }
+
+    .contactus__button{
+        width: max-content;
+        justify-self: center;
+        margin-top: 1.5rem;
+    }
+
+    .contactus__message{
+        bottom: 4.5rem;
+    }
+    .contactus__social{
+        grid-template-columns: repeat(1, max-content);
+        column-gap: 5rem;
+    }
+    .footer__container{
+        padding-block: 3rem;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: space-between;
+    }
+    .footer__links{
+        column-gap: 4rem;
+        order: 1;
+    }
+    .scrollup{
+        right: 3rem;
+    }
 }
-
-}
-
-
-
