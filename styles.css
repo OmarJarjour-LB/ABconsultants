@@ -5,7 +5,7 @@
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue: 199;
+--hue:1312312222349;
 --first-color: hsl(var(--hue), 55%, 55%);
 --first-color-light: hsl(var(--hue), 55%, 65%);
 --first-color-alt: hsl(var(--hue), 50%, 50%);
@@ -27,7 +27,7 @@
 --h2-font-size: 1.25rem;
 --h3-font-size: 1rem;
 --normal-font-size: .938rem;
---font-size: .813rem;
+--small-font-size: .813rem;
 
 
 /* font weight */
@@ -186,7 +186,7 @@ img{
         background-color: hsla(var(--hue), 70%, 4%, .2);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        width: 30%;
+        width: 50%;
         height: 100%;
         padding: 7rem 3rem;
         transition: right .4s;
@@ -415,3 +415,51 @@ img{
     margin-bottom: 2rem;
 }
 
+
+
+
+
+/* PREVIOUS PROJECTS */
+
+.projects{
+    background-color: var(--container-color);
+}
+
+.project__card{
+    background-color: var(--first-color);
+}
+
+.project__link{
+    display: block;
+    position: relative;
+    background-color: var(--body-color);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    color: var(--text-color);
+    transition: transform .4s;
+}
+
+.project__title{
+    font-size: var(--h3-font-size);
+    margin-bottom: .75rem;
+}
+
+.project__description{
+    margin-bottom: 1.5rem;
+}
+
+.project__link i{
+    position: absolute;
+    top: 1.8rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--first-color-light);
+    transition: transform .4s;
+}
+
+.project__link:hover{
+    transform: translateY(-.35rem);
+}
+
+.project__link:hover i{
+    transform: translateX(.5rem);
+}
