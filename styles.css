@@ -182,7 +182,7 @@ img{
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: hsla(var(--hue), 70%, 4%, .2);
+        background-color: hsla(var(--hue), 100%, 100%, .1);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         width: 50%;
@@ -604,17 +604,17 @@ contactus__form{
 
 ::-webkit-scrollbar{
     width: .6rem;
-    background-color: hsl(var(--hue), 20%, 20%);
+    background-color: hsl(var(--hue), 100%, 80%);
 }
 
 ::-webkit-scrollbar-thumb{
     width: .6rem;
-    background-color: hsl(var(--hue), 20%, 30%);
+    background-color: hsl(var(--hue), 100%, 55%);
 }
 
 ::-webkit-scrollbar-thumb:hover{
     width: .6rem;
-    background-color: hsl(var(--hue), 20%, 40%);
+    background-color: hsl(var(--hue), 100%, 70%);
 }
 
 /* Scrollup */
