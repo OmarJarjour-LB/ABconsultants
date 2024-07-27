@@ -65,3 +65,31 @@ const scrollActive = () =>{
     })
 }
 window.addEventListener('scroll', scrollActive)
+
+/* CURSOR */
+
+
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.cursor');
+
+    // Position the cursor element centered at the mouse pointer
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.transform = 'translate(-50%, -50%)';
+    cursor.style.display = "block";
+
+/* onmouseout */
+document.addEventListener('mouseout', () =>{
+    cursor.style.display = "none";
+})
+
+
+/* mouse stopped */
+
+function mouseStopped(){
+    cursor.style.display = "none";
+}
+clearTimeout(timeout);
+timeout = setTimeout(mouseStopped, 1000)
+
+});
