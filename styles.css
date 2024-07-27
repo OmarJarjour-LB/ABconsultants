@@ -854,36 +854,40 @@ contactus__form{
 
 
 /* Cursor */
-
 body {
     margin: 0;
     height: 100vh;
+    overflow: auto; /* Allow scrolling */
     cursor: none; /* Hide the default cursor */
     position: relative; /* Ensure body is the reference for absolute positioning */
 }
 
 .cursor {
-    position: absolute; /* Absolute positioning relative to the body */
+    position: fixed; /* Fixed positioning relative to the viewport */
     pointer-events: none; /* Prevent cursor from interfering with interactions */
     z-index: 9999; /* Ensure the cursor is on top */
-    transform: translate(-50%, -50%); /* Center the cursor */
+    /* Remove width and height to prevent covering the viewport */
+    display: none;
+}
+
+.vertical-line, .horizontal-line, .square {
+    position: absolute; /* Absolute positioning within the cursor */
+    pointer-events: none; /* Prevent these elements from capturing mouse events */
 }
 
 .vertical-line {
     width: 1px; /* Thin vertical line */
-    height: 400vh; /* Four times the height of the viewport */
+    height: 400vh; /* Extending beyond the viewport */
     background-color: black; /* Line color */
-    position: absolute; /* Absolute positioning */
     left: 50%; /* Center horizontally */
     top: -200vh; /* Start the line far above the viewport */
     transform: translateX(-50%); /* Center the line */
 }
 
 .horizontal-line {
-    width: 400vw; /* Four times the width of the viewport */
+    width: 400vw; /* Extending beyond the viewport */
     height: 1px; /* Thin horizontal line */
     background-color: black; /* Line color */
-    position: absolute; /* Absolute positioning */
     top: 50%; /* Center vertically */
     left: -200vw; /* Start the line far to the left of the viewport */
     transform: translateY(-50%); /* Center the line */
@@ -894,7 +898,6 @@ body {
     height: 10px; /* Size of the square */
     border: 1px solid black; /* Outline border */
     background-color: transparent; /* Transparent background */
-    position: absolute; /* Position within .cursor */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center the square */

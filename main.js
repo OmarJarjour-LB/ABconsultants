@@ -69,6 +69,8 @@ window.addEventListener('scroll', scrollActive)
 /* CURSOR */
 
 
+let timeout; // Declare timeout outside of the event listener
+
 document.addEventListener('mousemove', (e) => {
     const cursor = document.querySelector('.cursor');
 
@@ -78,18 +80,16 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.transform = 'translate(-50%, -50%)';
     cursor.style.display = "block";
 
-/* onmouseout */
-document.addEventListener('mouseout', () =>{
-    cursor.style.display = "none";
-})
+    // Clear the previous timeout
+    clearTimeout(timeout);
 
+    // Set a new timeout to hide the cursor after 1 second of inactivity
+    timeout = setTimeout(() => {
+        cursor.style.display = "none";
+    }, 1000);
+});
 
-/* mouse stopped */
-
-function mouseStopped(){
-    cursor.style.display = "none";
-}
-clearTimeout(timeout);
-timeout = setTimeout(mouseStopped, 1000)
-
+// Hide the cursor when the mouse leaves the document
+document.addEventListener('mouseout', () => {
+    document.querySelector('.cursor').style.display = "none";
 });
