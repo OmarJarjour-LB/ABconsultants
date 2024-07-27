@@ -68,12 +68,11 @@ window.addEventListener('scroll', scrollActive)
 
 /* CURSOR */
 
-
+// Query the cursor element once and store it in a variable
+const cursor = document.querySelector('.cursor');
 let timeout; // Declare timeout outside of the event listener
 
 document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.cursor');
-
     // Position the cursor element centered at the mouse pointer
     cursor.style.top = `${e.clientY}px`;
     cursor.style.left = `${e.clientX}px`;
@@ -91,5 +90,27 @@ document.addEventListener('mousemove', (e) => {
 
 // Hide the cursor when the mouse leaves the document
 document.addEventListener('mouseout', () => {
-    document.querySelector('.cursor').style.display = "none";
+    cursor.style.display = "none";
+
+});
+
+
+
+
+// Enlarge the cursor on hover and reset on click
+const clickableElements = document.querySelectorAll('a, button, .clickable-element'); // Add other elements as needed
+
+clickableElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('enlarged'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('enlarged'));
+});
+
+document.addEventListener('click', () => {
+    cursor.classList.remove('enlarged');
+    setTimeout(() => {
+        const el = document.querySelector('a:hover, button:hover, .clickable-element:hover');
+        if (el) {
+            cursor.classList.add('enlarged');
+        }
+    }, 100); // Reset duration to half (0.1s) of the CSS transition time (0.2s)
 });

@@ -863,11 +863,14 @@ body {
 }
 
 .cursor {
-    position: fixed; /* Fixed positioning relative to the viewport */
-    pointer-events: none; /* Prevent cursor from interfering with interactions */
-    z-index: 9999; /* Ensure the cursor is on top */
-    /* Remove width and height to prevent covering the viewport */
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    position: fixed;
+    pointer-events: none;
     display: none;
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s;
 }
 
 .vertical-line, .horizontal-line, .square {
@@ -894,11 +897,22 @@ body {
 }
 
 .square {
-    width: 10px; /* Size of the square */
-    height: 10px; /* Size of the square */
-    border: 1px solid black; /* Outline border */
-    background-color: transparent; /* Transparent background */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the square */
+    /* width: 10px; Size of the square */
+    /* height: 10px; Size of the square */
+    /* border: 1px solid black; Outline border */
+    /* background-color: transparent; Transparent background */
+    /* top: 50%; Center vertically */
+    /* left: 50%; Center horizontally */
+    /* transform: translate(-50%, -50%); Center the square */
 }
+
+
+.cursor.enlarged {
+    width: 20px; 
+    height: 20px; 
+}
+
+a, button, .clickable-element { /* Add other elements as needed */
+    cursor: none;
+}
+
