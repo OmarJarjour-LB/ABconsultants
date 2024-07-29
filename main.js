@@ -98,7 +98,7 @@ document.addEventListener('mouseout', () => {
 
 
 // Enlarge the cursor on hover and reset on click
-const clickableElements = document.querySelectorAll('a, button, .clickable-element'); // Add other elements as needed
+const clickableElements = document.querySelectorAll('a, button, .clickable-element, i, input, textarea'); // Add other elements as needed
 
 clickableElements.forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('enlarged'));
@@ -108,7 +108,7 @@ clickableElements.forEach(el => {
 document.addEventListener('click', () => {
     cursor.classList.remove('enlarged');
     setTimeout(() => {
-        const el = document.querySelector('a:hover, button:hover, .clickable-element:hover');
+        const el = document.querySelector('a:hover, button:hover, .clickable-element:hover, i:hover, input:hover, textarea:hover');
         if (el) {
             cursor.classList.add('enlarged');
         }

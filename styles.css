@@ -918,7 +918,8 @@ body {
     height: 20px; 
 }
 
-a, button, .clickable-element { /* Add other elements as needed */
+
+a, button, .clickable-element, i, input, textarea { /* Add other elements as needed */
     cursor: none;
 }
 
