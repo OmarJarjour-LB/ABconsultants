@@ -919,7 +919,7 @@ body {
 }
 
 
-a, button, .clickable-element, i, input, textarea { /* Add other elements as needed */
+a, button, .clickable-element, i, input, textarea, .nav__toggle, .nav__close { /* Add other elements as needed */
     cursor: none;
 }
 
