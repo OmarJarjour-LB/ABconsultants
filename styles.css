@@ -563,7 +563,7 @@ contactus__form{
 }
 
 .contactus__message{
-    margin-top: 2rem;
+    /* margin-top: .5rem; */
     text-align: center;
     font-weight: var(--font-bold);
     margin-bottom: 1rem;
