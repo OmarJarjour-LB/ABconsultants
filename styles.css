@@ -524,7 +524,6 @@ contactus__form{
 
 .contactus__button{
     margin-top: 1rem;
-    cursor: pointer;
     padding: 1.25rem;
     background-color: var(--first-color);
     color: var(--container-color);
