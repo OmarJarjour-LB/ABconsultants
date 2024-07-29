@@ -429,6 +429,12 @@ img{
     margin-bottom: 2rem;
 }
 
+.aboutus__img{
+    width: 250px;
+    justify-self: center;
+    mask-image: linear-gradient(to bottom, hsla(var(--hue), 40%, 16%)60%, transparent 100%);
+}
+
 
 
 
