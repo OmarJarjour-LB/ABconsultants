@@ -733,7 +733,7 @@ contactus__form{
 
     .home__container{
         grid-template-columns: 533px 350px;
-        gap: 3rem 16rem;
+        gap: 3rem 8rem;
     }
 
     .home__img{
