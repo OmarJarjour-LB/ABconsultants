@@ -3,13 +3,13 @@
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue:14;
---first-color: hsl(var(--hue), 100%, 55%); /* e signiture color */
+--hue:1;
+--first-color: hsl(var(--hue), 85%, 50%); /* e signiture color */
 --first-color-light: hsl(var(--hue), 100%, 55%);
 --first-color-alt: hsl(var(--hue), 100%, 55%);
 --title-color: hsl(var(--hue), 100%, 10%); /* e icons titles */
 --icon-color: hsl(var(--hue), 0%, 100%);
---text-color: hsl(var(--hue), 100%, 80%); /* e description */
+--text-color: hsl(var(--hue), 85%, 70%); /* e description */
 --text-color-light: hsl(var(--hue), 20%, 70%);
 --body-color: hsl(var(--hue), 0%, 100%);
 --container-color: hsl(var(--hue), 25%, 95%);
@@ -47,7 +47,7 @@
 
 @media screen and (min-width: 1150px){
     :root{
-        --biggest-font-size: 5.5rem;
+        --biggest-font-size: 4.5rem;
         --big-font-size: 2.75rem;
         --h1-font-size: 2.25rem;
         --h2-font-size: 1.5rem;
@@ -609,12 +609,12 @@ contactus__form{
 
 ::-webkit-scrollbar{
     width: .6rem;
-    background-color: hsl(var(--hue), 100%, 80%);
+    background-color: hsl(var(--hue), 90%, 85%);
 }
 
 ::-webkit-scrollbar-thumb{
     width: .6rem;
-    background-color: hsl(var(--hue), 100%, 55%);
+    background-color: hsl(var(--hue), 85%, 50%);
 }
 
 ::-webkit-scrollbar-thumb:hover{
@@ -732,7 +732,7 @@ contactus__form{
     }
 
     .home__container{
-        grid-template-columns: 375px 350px;
+        grid-template-columns: 533px 350px;
         gap: 3rem 16rem;
     }
 
@@ -773,7 +773,7 @@ contactus__form{
 
 
     .projects__container{
-        grid-template-columns: repeat(1, 540px);
+        grid-template-columns: repeat(2, 540px);
         gap: 2.5rem;
     }
 
@@ -842,7 +842,7 @@ contactus__form{
         column-gap: 5rem;
     }
     .footer__container{
-        padding-block: 3rem;
+        padding-block: 1.5rem;
         grid-template-columns: repeat(2, max-content);
         justify-content: space-between;
     }
