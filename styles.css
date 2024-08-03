@@ -5,7 +5,7 @@
     --header-height: 3.5rem;
 --hue:1;
 --first-color: hsl(var(--hue), 85%, 50%); /* e signiture color */
---first-color-light: hsl(var(--hue), 100%, 55%);
+--first-color-light: hsl(var(--hue), 100%, 65%);
 --first-color-alt: hsl(var(--hue), 100%, 55%);
 --title-color: hsl(var(--hue), 100%, 10%); /* e icons titles */
 --icon-color: hsl(var(--hue), 0%, 100%);
