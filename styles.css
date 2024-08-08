@@ -3,7 +3,7 @@
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue:1;
+--hue:30;
 --first-color: hsl(var(--hue), 85%, 50%); /* e signiture color */
 --first-color-light: hsl(var(--hue), 100%, 60%);
 --first-color-alt: hsl(var(--hue), 100%, 55%);
@@ -396,6 +396,13 @@ img{
 
 .service__link:hover i {
     transform: translateY(-.5rem);
+}
+
+.service__link img {
+    width: 100%;  /* Ensure the image fills the entire width of the container */
+    height: 15rem; /* Set a fixed height for consistency across all images */
+    object-fit: cover; /* Ensure the image covers the entire area without stretching */
+    display: block;
 }
 
 
