@@ -3,13 +3,13 @@
 /* Variables css */
 :root {
     --header-height: 3.5rem;
---hue:30;
---first-color: hsl(var(--hue), 85%, 50%); /* e signiture color */
+--hue:15;
+--first-color: hsl(var(--hue), 90%, 40%); /* e signiture color */
 --first-color-light: hsl(var(--hue), 100%, 60%);
 --first-color-alt: hsl(var(--hue), 100%, 55%);
 --title-color: hsl(var(--hue), 100%, 10%); /* e icons titles */
 --icon-color: hsl(var(--hue), 0%, 100%);
---text-color: hsl(var(--hue), 85%, 70%); /* e description */
+--text-color: hsl(var(--hue), 90%, 60%); /* e description */
 --text-color-light: hsl(var(--hue), 20%, 70%);
 --body-color: hsl(var(--hue), 0%, 100%);
 --container-color: hsl(var(--hue), 25%, 98%);
@@ -621,7 +621,7 @@ contactus__form{
 
 ::-webkit-scrollbar-thumb{
     width: .6rem;
-    background-color: hsl(var(--hue), 85%, 50%);
+    background-color: hsl(var(--hue), 90%, 40%);
 }
 
 ::-webkit-scrollbar-thumb:hover{
