@@ -704,12 +704,12 @@ contactus__form{
   }
  
   .project__link:hover .carousel-button.left {
-    transform: translate(-.35rem, -50%); /* Moves the left button further left */
+    transform: translate(-.75rem, -50%); 
     
 }
 
 .project__link:hover .carousel-button.right {
-    transform: translate(.35rem, -50%); /* Moves the right button further right */
+    transform: translate(.75rem, -50%); 
 }
 
 
