@@ -9,7 +9,7 @@
 --first-color-alt: hsl(var(--hue), 100%, 55%);
 --title-color: hsl(var(--hue), 100%, 10%); /* e icons titles */
 --icon-color: hsl(var(--hue), 0%, 100%);
---text-color: hsl(var(--hue), 90%, 60%); /* e description */
+--text-color: hsl(var(--hue), 90%, 40%); /* e description */
 --text-color-light: hsl(var(--hue), 20%, 70%);
 --body-color: hsl(var(--hue), 0%, 100%);
 --container-color: hsl(var(--hue), 25%, 98%);
@@ -398,7 +398,7 @@ img{
     transform: translateY(-.5rem);
 }
 
-.service__link img {
+.service__link img, .project__link img {
     width: 100%;  /* Ensure the image fills the entire width of the container */
     height: 15rem; /* Set a fixed height for consistency across all images */
     object-fit: cover; /* Ensure the image covers the entire area without stretching */
@@ -652,6 +652,71 @@ contactus__form{
 .show-scroll{
     bottom: 3rem;
 }
+
+
+/* Carousel */
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Example values */
+
+  }
+  
+  .carousel-image {
+    flex-shrink: 0;      /* Prevent images from shrinking inside the flex container */
+    width: 100%;         /* Ensure the image fills the entire width of the container */
+    height: 15rem;       /* Set a fixed height for consistency across all images */
+    object-fit: cover;   /* Ensure the image covers the entire area without stretching */
+    display: block;
+  }
+  
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+  }
+  
+  .carousel-button.left {
+    left: 10px;
+    transition: transform 0.4s;
+  }
+  
+  .carousel-button.right {
+    right: 10px;
+    transition: transform 0.4s;
+  }
+ 
+  .project__link:hover .carousel-button.left {
+    transform: translate(-.35rem, -50%); /* Moves the left button further left */
+    
+}
+
+.project__link:hover .carousel-button.right {
+    transform: translate(.35rem, -50%); /* Moves the right button further right */
+}
+
+
+  
+
+
+
 
 
 
