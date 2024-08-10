@@ -218,7 +218,7 @@ img{
 }
 
 .nav__link:hover{
-    color: var(--first-color-light);
+    color: var(--first-color);
 }
 
 .nav__link:hover::after{
