@@ -122,35 +122,54 @@ document.addEventListener('click', () => {
 });
 
 
+
+
+
 /* Carousel */
-
 let carouselIndices = {
-  carousel1: 0,
-  carousel2: 0,
-  carousel3: 0
-};
-
-function showSlide(carouselId, index) {
-  const carousel = document.getElementById(carouselId);
-  const slides = carousel.querySelectorAll('.carousel-image');
-  const totalSlides = slides.length;
-
-  if (index >= totalSlides) {
-    carouselIndices[carouselId] = 0;
-  } else if (index < 0) {
-    carouselIndices[carouselId] = totalSlides - 1;
-  } else {
-    carouselIndices[carouselId] = index;
+    carousel1: 0,
+    carousel2: 0,
+    carousel3: 0
+  };
+  
+  function showSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+  
+    // Handle out-of-bounds indices
+    if (index >= totalSlides) {
+      carouselIndices[carouselId] = 0;
+    } else if (index < 0) {
+      carouselIndices[carouselId] = totalSlides - 1;
+    } else {
+      carouselIndices[carouselId] = index;
+    }
+  
+    // Move the carousel to show the correct slide
+    const offset = -carouselIndices[carouselId] * 100;
+    carousel.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+  
+    // Update active class for the correct slide and its description
+    slides.forEach((slide, i) => {
+      if (i === carouselIndices[carouselId]) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
   }
-
-  const offset = -carouselIndices[carouselId] * 100;
-  carousel.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
-}
-
-function nextSlide(carouselId) {
-  showSlide(carouselId, carouselIndices[carouselId] + 1);
-}
-
-function prevSlide(carouselId) {
-  showSlide(carouselId, carouselIndices[carouselId] - 1);
-}
+  
+  function nextSlide(carouselId) {
+    showSlide(carouselId, carouselIndices[carouselId] + 1);
+  }
+  
+  function prevSlide(carouselId) {
+    showSlide(carouselId, carouselIndices[carouselId] - 1);
+  }
+  
+  // Initialize the first slide
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide('carousel2', 0); // Initialize with the first slide for carousel2
+  });
+  
