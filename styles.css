@@ -12,7 +12,7 @@
 --text-color: hsl(var(--hue), 90%, 40%); /* e description */
 --text-color-light: hsl(var(--hue), 20%, 70%);
 --body-color: hsl(var(--hue), 0%, 100%);
---container-color: hsl(var(--hue), 25%, 98%);
+--container-color: hsl(var(--hue), 20%, 97%);
 
 
 
@@ -684,7 +684,7 @@ contactus__form{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.35);
     color: white;
     border: none;
     padding: 10px;
@@ -724,7 +724,7 @@ contactus__form{
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%); /* Center horizontally */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.35);
     color: white;
     padding: 5px 10px;
     transition: transform 0.4s;
