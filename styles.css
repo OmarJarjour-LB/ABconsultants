@@ -39,7 +39,7 @@
 /* z index */
 
 --z-tooltip: 10;
---z-fixed: 100;
+--z-fixed: 1000;
 }
 
 /* RESPONSIVE TYPOGRAPHY */
@@ -690,7 +690,7 @@ contactus__form{
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
-    z-index: 1000;
+    z-index: 500 ;
   }
   
   .carousel-button.left {
