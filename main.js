@@ -129,7 +129,8 @@ document.addEventListener('click', () => {
 let carouselIndices = {
     carousel1: 0,
     carousel2: 0,
-    carousel3: 0
+    carousel3: 0,
+    carousel4: 0,
   };
   
   function showSlide(carouselId, index) {
