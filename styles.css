@@ -1020,3 +1020,35 @@ a, button, .clickable-element, i, input, textarea, .nav__toggle, .nav__close, bu
     cursor: none;
 }
 
+
+
+
+
+#immediate-feedback {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease-in-out; /* Animation for fading in */
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark text */
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+
+
+input:-webkit-autofill {
+    background-color: hsl(var(--hue), 90%, 45%) !important;
+    -webkit-box-shadow: 0 0 0px 1000px hsl(var(--hue), 90%, 95%) inset !important;
+    color: #000000 !important; /* Keep the text color dark for readability */
+}
+
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    background-color: hsl(var(--hue), 90%, 95%) !important;
+    -webkit-box-shadow: 0 0 0px 1000px hsl(var(--hue), 90%, 95%) inset !important;
+    color: #000000 !important;
+}
+

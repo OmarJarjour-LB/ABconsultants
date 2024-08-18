@@ -174,3 +174,57 @@ let carouselIndices = {
     showSlide('carousel2', 0); // Initialize with the first slide for carousel2
   });
   
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactus-form');
+    const submitButton = document.querySelector('.contactus__button');
+    const immediateFeedback = document.getElementById('immediate-feedback');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Display and animate the immediate feedback message
+        immediateFeedback.style.display = 'block';
+        setTimeout(() => {
+            immediateFeedback.style.opacity = '1';
+        }, 0); // Start fade-in effect
+
+        // Disable the submit button to prevent multiple submissions
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show alert after server confirms receipt
+                alert('We have received your query and will reply to your email shortly.');
+
+                // Fade out the immediate feedback message after the alert
+                immediateFeedback.style.opacity = '0';
+                setTimeout(() => {
+                    immediateFeedback.style.display = 'none';
+                }, 3000); // Wait 3 seconds before hiding the message
+
+                form.reset(); // Reset the form fields
+            } else {
+                alert('There was a problem submitting your query. Please try again later.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while submitting your query. Please try again later.');
+        })
+        .finally(() => {
+            // Re-enable the submit button and reset its text
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        });
+    });
+});

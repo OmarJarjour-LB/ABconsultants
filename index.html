@@ -264,7 +264,7 @@
                                 <div class="carousel-images">
                                     <div class="carousel-item active">
                                         <img src="Media/ServiceImages/Landscape Design/Private Garden-Lebanonn.JPG" alt="image" class="carousel-image">
-                                        <p class="carousel-description">Private Garden Bekaa/Lebanon</p>
+                                        <p class="carousel-description">Private Garden Bekaa Lebanon</p>
                                     </div>
                                     <div class="carousel-item">
                                         <img src="Media/ServiceImages/Landscape Design/1.jpg" alt="image" class="carousel-image">
@@ -343,14 +343,20 @@
             <h2 class="section__title">Send Us Your Queries</h2>
             <div class="contactus__container container grid">
                 <form action="https://formsubmit.co/omarjarjour50@gmail.com" class="contactus__form grid" id="contactus-form" method="post">
+                    <!-- Success message display -->
+                    <p id="immediate-feedback" style="display: none; color: green; font-weight: bold; margin-bottom: 10px;">
+                        Your message has been sent successfully!
+                    </p>
+                    
                     <div class="contactus__group grid">
                         <input type="text" name="Provided-Name" placeholder="Name" required class="contactus__input">
                         <input type="email" name="Provided-Email" placeholder="Email" required class="contactus__input">
                     </div>
-                        <textarea name="Provided-Query" placeholder="Query" required class="contactus__input contactus__area"></textarea>
-                        <button type="submit" class="button contactus__button">Send Message</button>
+                    <textarea name="Provided-Query" placeholder="Query" required class="contactus__input contactus__area"></textarea>
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="button contactus__button">Send Message</button>
                     <p class="contactus__message" id="contactus-message">or Call Us Directly</p>
-                </form>
+                </form>                
                 <div class="contactus__social grid">
                     <a href="tel:+96181080681" class="contactus__social-link">
                         <i class="ri-smartphone-line"></i>
