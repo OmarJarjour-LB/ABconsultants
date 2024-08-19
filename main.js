@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const phoneNumbers = document.querySelectorAll('.phone-number');
+    const phoneNumbers = document.querySelectorAll('#phone-numbers');
 
     document.getElementById('contactus-message').addEventListener('click', function(e) {
         // The page will automatically scroll to the phone numbers due to the href link.
