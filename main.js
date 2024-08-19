@@ -174,11 +174,15 @@ let carouselIndices = {
     showSlide('carousel2', 0); // Initialize with the first slide for carousel2
   });
   
+/* Contact forms */
 
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactus-form');
     const submitButton = document.querySelector('.contactus__button');
     const immediateFeedback = document.getElementById('immediate-feedback');
+
+    // Set up initial styles for the feedback element
+    immediateFeedback.style.transition = 'opacity 1s ease-out'; // 1s fade-out duration
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission
@@ -209,13 +213,13 @@ let carouselIndices = {
                     immediateFeedback.style.opacity = '1';
                 }, 0); // Start fade-in effect
 
-                // Fade out the success message after the alert
+                // Fade out the success message after 5 seconds
                 setTimeout(() => {
-                    immediateFeedback.style.opacity = '0';
+                    immediateFeedback.style.opacity = '0'; // Trigger the fade-out
                     setTimeout(() => {
                         immediateFeedback.style.display = 'none';
-                    }, 1000); // Wait 1 second after fade-out
-                }, 3000); // Wait 3 seconds before starting to fade out
+                    }, 1000); // Ensure it hides after the fade-out completes (1s)
+                }, 5000); // Wait 5 seconds before starting to fade out
 
                 form.reset(); // Reset the form fields
             } else {
@@ -235,13 +239,13 @@ let carouselIndices = {
                 immediateFeedback.style.opacity = '1';
             }, 0); // Start fade-in effect
 
-            // Fade out the error message after some time
+            // Fade out the error message after 5 seconds
             setTimeout(() => {
-                immediateFeedback.style.opacity = '0';
+                immediateFeedback.style.opacity = '0'; // Trigger the fade-out
                 setTimeout(() => {
                     immediateFeedback.style.display = 'none';
-                }, 1000); // Wait 1 second after fade-out
-            }, 3000); // Wait 3 seconds before starting to fade out
+                }, 1000); // Ensure it hides after the fade-out completes (1s)
+            }, 5000); // Wait 5 seconds before starting to fade out
         })
         .finally(() => {
             // Re-enable the submit button and reset its text
@@ -250,7 +254,6 @@ let carouselIndices = {
         });
     });
 });
-
 
 
 /* carousel  touch  support */
@@ -334,5 +337,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize the first slide
         setCarouselPosition();
+    });
+});
+
+
+
+/* Highlight phone nummbers */
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const phoneNumbers = document.querySelectorAll('.phone-number');
+
+    document.getElementById('contactus-message').addEventListener('click', function(e) {
+        // The page will automatically scroll to the phone numbers due to the href link.
+        
+        // Highlight and flash the phone numbers
+        phoneNumbers.forEach(function(phoneNumber) {
+            phoneNumber.classList.add('highlighted');
+
+            // Flash effect
+            phoneNumber.style.animation = 'flash 1s';
+
+            // Remove the highlight and flash after the animation
+            setTimeout(() => {
+                phoneNumber.style.animation = ''; // Clear the animation
+                phoneNumber.classList.remove('highlighted');
+            }, 1000); // Duration of the flash animation
+        });
     });
 });

@@ -1052,3 +1052,43 @@ input:-webkit-autofill:active {
     color: #000000 !important;
 }
 
+
+
+.phone-number.highlighted {
+    background-color: hsl(var(--hue), 90%, 45%);
+    transition: background-color 0.5s ease-out;
+}
+
+@keyframes flash {
+    0% { background-color: hsl(var(--hue), 90%, 45%); }
+    50% { background-color: transparent; }
+    100% { background-color: hsl(var(--hue), 90%, 45%); }
+}
+.phone-number.highlighted {
+    background-color: hsl(var(--hue), 90%, 45%);
+    transition: background-color 0.5s ease-out;
+}
+
+@keyframes flash {
+    0% { background-color: hsl(var(--hue), 90%, 45%); }
+    50% { background-color: transparent; }
+    100% { background-color: hsl(var(--hue), 90%, 45%); }
+}
+
+
+
+#contactus-message {
+    color: #000000; /* Dark text */
+    position: relative; /* Create a positioning context */
+    display: inline-block; /* Ensure it only takes as much space as needed */
+}
+
+#contactus-message::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust this value to increase/decrease the space between text and underline */
+    width: 100%;
+    height: 0.135em; /* Thickness of the underline */
+    background-color: #000000; /* Color of the underline */
+}

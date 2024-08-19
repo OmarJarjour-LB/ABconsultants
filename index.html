@@ -347,7 +347,6 @@
                     <p id="immediate-feedback" style="display: none; color: green; font-weight: bold; margin-bottom: 10px;">
                         Your message has been sent successfully!
                     </p>
-                    
                     <div class="contactus__group grid">
                         <input type="text" name="Provided-Name" placeholder="Name" required class="contactus__input">
                         <input type="email" name="Provided-Email" placeholder="Email" required class="contactus__input">
@@ -355,9 +354,11 @@
                     <textarea name="Provided-Query" placeholder="Query" required class="contactus__input contactus__area"></textarea>
                     <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="button contactus__button">Send Message</button>
-                    <p class="contactus__message" id="contactus-message">or Call Us Directly</p>
-                </form>                
-                <div class="contactus__social grid">
+                    <p class="contactus__message">
+                        <a href="#phone-numbers" id="contactus-message">or Call Us Directly</a>
+                    </p>
+                </form>                  
+                <div id="phone-numbers" class="contactus__social grid">
                     <a href="tel:+96181034112" class="contactus__social-link">
                         <i class="ri-smartphone-line"></i>
                         <span>+961 81 034 112</span>
@@ -366,10 +367,8 @@
                         <i class="ri-smartphone-line"></i>
                         <span>+961 71 364 303</span>
                     </a>
-                    
                 </div>
             </div>
-
         </section>
     </main>
     <!-- Footer -->
