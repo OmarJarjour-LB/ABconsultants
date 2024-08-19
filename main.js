@@ -175,7 +175,6 @@ let carouselIndices = {
   });
   
 
-
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactus-form');
     const submitButton = document.querySelector('.contactus__button');
@@ -183,12 +182,6 @@ let carouselIndices = {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission
-
-        // Display and animate the immediate feedback message
-        immediateFeedback.style.display = 'block';
-        setTimeout(() => {
-            immediateFeedback.style.opacity = '1';
-        }, 0); // Start fade-in effect
 
         // Disable the submit button to prevent multiple submissions
         submitButton.disabled = true;
@@ -206,20 +199,49 @@ let carouselIndices = {
                 // Show alert after server confirms receipt
                 alert('We have received your query and will reply to your email shortly.');
 
-                // Fade out the immediate feedback message after the alert
-                immediateFeedback.style.opacity = '0';
+                // Show and animate the success message
+                immediateFeedback.textContent = 'Message has been sent successfully.';
+                immediateFeedback.style.backgroundColor = 'hsl(120, 100%, 90%)'; // Light green
+                immediateFeedback.style.color = 'darkgreen';
+                immediateFeedback.style.borderRadius = '0';
+                immediateFeedback.style.display = 'block';
                 setTimeout(() => {
-                    immediateFeedback.style.display = 'none';
-                }, 3000); // Wait 3 seconds before hiding the message
+                    immediateFeedback.style.opacity = '1';
+                }, 0); // Start fade-in effect
+
+                // Fade out the success message after the alert
+                setTimeout(() => {
+                    immediateFeedback.style.opacity = '0';
+                    setTimeout(() => {
+                        immediateFeedback.style.display = 'none';
+                    }, 1000); // Wait 1 second after fade-out
+                }, 3000); // Wait 3 seconds before starting to fade out
 
                 form.reset(); // Reset the form fields
             } else {
-                alert('There was a problem submitting your query. Please try again later.');
+                throw new Error('Network response was not ok');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while submitting your query. Please try again later.');
+
+            // Show and animate the error message
+            immediateFeedback.textContent = 'Error sending query. Please try again later.';
+            immediateFeedback.style.backgroundColor = 'hsl(0, 100%, 90%)'; // Light red
+            immediateFeedback.style.color = 'darkred';
+            immediateFeedback.style.borderRadius = '0';
+            immediateFeedback.style.display = 'block';
+            setTimeout(() => {
+                immediateFeedback.style.opacity = '1';
+            }, 0); // Start fade-in effect
+
+            // Fade out the error message after some time
+            setTimeout(() => {
+                immediateFeedback.style.opacity = '0';
+                setTimeout(() => {
+                    immediateFeedback.style.display = 'none';
+                }, 1000); // Wait 1 second after fade-out
+            }, 3000); // Wait 3 seconds before starting to fade out
         })
         .finally(() => {
             // Re-enable the submit button and reset its text
@@ -228,6 +250,7 @@ let carouselIndices = {
         });
     });
 });
+
 
 
 /* carousel  touch  support */
