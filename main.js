@@ -258,85 +258,134 @@ let carouselIndices = {
 
 /* carousel  touch  support */
 
-document.addEventListener('DOMContentLoaded', () => {
-    let startX = 0;
-    let isDragging = false;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID;
-    let currentIndex = 0;
-
+document.addEventListener('DOMContentLoaded', function () {
     const carousels = document.querySelectorAll('.carousel');
 
-    carousels.forEach(carousel => {
+    carousels.forEach((carousel) => {
+        let startX;
+        let currentX;
+        let isDragging = false;
+
         const imagesContainer = carousel.querySelector('.carousel-images');
-        const slides = carousel.querySelectorAll('.carousel-item');
-        const totalSlides = slides.length;
-        const slideWidth = imagesContainer.clientWidth;
+        const items = carousel.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let index = 0;
 
-        function setCarouselPosition() {
-            imagesContainer.style.transform = `translateX(${currentTranslate}px)`;
-        }
-
-        function animation() {
-            setCarouselPosition();
-            if (isDragging) {
-                requestAnimationFrame(animation);
-            }
-        }
-
-        function handleTouchStart(e) {
+        // Touch start event
+        carousel.addEventListener('touchstart', function (e) {
             startX = e.touches[0].clientX;
             isDragging = true;
-            animationID = requestAnimationFrame(animation);
-            prevTranslate = currentTranslate;
-        }
+            imagesContainer.style.transition = 'none'; // Disable transition for dragging
+        });
 
-        function handleTouchMove(e) {
-            if (isDragging) {
-                const currentX = e.touches[0].clientX;
-                const diffX = currentX - startX;
+        // Touch move event
+        carousel.addEventListener('touchmove', function (e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diff = currentX - startX;
+            imagesContainer.style.transform = `translateX(calc(${-index * 100}% + ${diff}px))`;
+        });
 
-                // Prevent dragging beyond the first and last slide
-                if (currentIndex === 0 && diffX > 0) {
-                    currentTranslate = prevTranslate + diffX / 3; // Reduce dragging effect on the first slide
-                } else if (currentIndex === totalSlides - 1 && diffX < 0) {
-                    currentTranslate = prevTranslate + diffX / 3; // Reduce dragging effect on the last slide
-                } else {
-                    currentTranslate = prevTranslate + diffX;
-                }
-            }
-        }
-
-        function handleTouchEnd() {
+        // Touch end event
+        carousel.addEventListener('touchend', function (e) {
             isDragging = false;
-            cancelAnimationFrame(animationID);
+            imagesContainer.style.transition = ''; // Re-enable transition
 
-            const movedBy = currentTranslate - prevTranslate;
+            const diff = currentX - startX;
+            const threshold = 50; // Swipe threshold to change the slide
 
-            // Only move if the slide is swiped by more than a third of its width
-            if (movedBy < -slideWidth / 3) {
-                // Swipe left
-                currentIndex = (currentIndex + 1) % totalSlides;
-            } else if (movedBy > slideWidth / 3) {
+            if (diff > threshold) {
                 // Swipe right
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                index = (index === 0) ? totalItems - 1 : index - 1;
+            } else if (diff < -threshold) {
+                // Swipe left
+                index = (index === totalItems - 1) ? 0 : index + 1;
             }
 
-            // Snap to the nearest slide
-            currentTranslate = -currentIndex * slideWidth;
-            setCarouselPosition();
+            updateCarousel(index);
+        });
 
-            // Reset translation values
-            prevTranslate = currentTranslate;
+        function updateCarousel(index) {
+            // Move the carousel to the correct position
+            imagesContainer.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update active class for items and descriptions
+            items.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
         }
 
-        imagesContainer.addEventListener('touchstart', handleTouchStart);
-        imagesContainer.addEventListener('touchmove', handleTouchMove);
-        imagesContainer.addEventListener('touchend', handleTouchEnd);
+        // Initialize carousel
+        updateCarousel(0);
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const carousels = document.querySelectorAll('.carousel');
 
-        // Initialize the first slide
-        setCarouselPosition();
+    carousels.forEach((carousel) => {
+        let startX;
+        let currentX;
+        let isDragging = false;
+
+        const imagesContainer = carousel.querySelector('.carousel-images');
+        const items = carousel.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let index = 0;
+
+        // Touch start event
+        carousel.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            imagesContainer.style.transition = 'none'; // Disable transition for dragging
+        });
+
+        // Touch move event
+        carousel.addEventListener('touchmove', function (e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diff = currentX - startX;
+            imagesContainer.style.transform = `translateX(calc(${-index * 100}% + ${diff}px))`;
+        });
+
+        // Touch end event
+        carousel.addEventListener('touchend', function (e) {
+            isDragging = false;
+            imagesContainer.style.transition = ''; // Re-enable transition
+
+            const diff = currentX - startX;
+            const threshold = 50; // Swipe threshold to change the slide
+
+            if (diff > threshold) {
+                // Swipe right
+                index = (index === 0) ? totalItems - 1 : index - 1;
+            } else if (diff < -threshold) {
+                // Swipe left
+                index = (index === totalItems - 1) ? 0 : index + 1;
+            }
+
+            updateCarousel(index);
+        });
+
+        function updateCarousel(index) {
+            // Move the carousel to the correct position
+            imagesContainer.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update active class for items and descriptions
+            items.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize carousel
+        updateCarousel(0);
     });
 });
 
