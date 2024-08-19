@@ -228,3 +228,88 @@ let carouselIndices = {
         });
     });
 });
+
+
+/* carousel  touch  support */
+
+document.addEventListener('DOMContentLoaded', () => {
+    let startX = 0;
+    let isDragging = false;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
+    let currentIndex = 0;
+
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach(carousel => {
+        const imagesContainer = carousel.querySelector('.carousel-images');
+        const slides = carousel.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        const slideWidth = imagesContainer.clientWidth;
+
+        function setCarouselPosition() {
+            imagesContainer.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function animation() {
+            setCarouselPosition();
+            if (isDragging) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            animationID = requestAnimationFrame(animation);
+            prevTranslate = currentTranslate;
+        }
+
+        function handleTouchMove(e) {
+            if (isDragging) {
+                const currentX = e.touches[0].clientX;
+                const diffX = currentX - startX;
+
+                // Prevent dragging beyond the first and last slide
+                if (currentIndex === 0 && diffX > 0) {
+                    currentTranslate = prevTranslate + diffX / 3; // Reduce dragging effect on the first slide
+                } else if (currentIndex === totalSlides - 1 && diffX < 0) {
+                    currentTranslate = prevTranslate + diffX / 3; // Reduce dragging effect on the last slide
+                } else {
+                    currentTranslate = prevTranslate + diffX;
+                }
+            }
+        }
+
+        function handleTouchEnd() {
+            isDragging = false;
+            cancelAnimationFrame(animationID);
+
+            const movedBy = currentTranslate - prevTranslate;
+
+            // Only move if the slide is swiped by more than a third of its width
+            if (movedBy < -slideWidth / 3) {
+                // Swipe left
+                currentIndex = (currentIndex + 1) % totalSlides;
+            } else if (movedBy > slideWidth / 3) {
+                // Swipe right
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            }
+
+            // Snap to the nearest slide
+            currentTranslate = -currentIndex * slideWidth;
+            setCarouselPosition();
+
+            // Reset translation values
+            prevTranslate = currentTranslate;
+        }
+
+        imagesContainer.addEventListener('touchstart', handleTouchStart);
+        imagesContainer.addEventListener('touchmove', handleTouchMove);
+        imagesContainer.addEventListener('touchend', handleTouchEnd);
+
+        // Initialize the first slide
+        setCarouselPosition();
+    });
+});
