@@ -1054,7 +1054,7 @@ input:-webkit-autofill:active {
 
 
 
-.phone-number.highlighted {
+#phone-number.highlighted {
     background-color: hsl(var(--hue), 90%, 85%);
     transition: background-color 0.5s ease-out;
 }
